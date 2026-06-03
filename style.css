@@ -1,0 +1,217 @@
+/* --- Variáveis de Cores e Configurações --- */
+:root {
+    --primary-color: #2e7d32; /* Verde Agro */
+    --primary-light: #e8f5e9;
+    --secondary-color: #f57c00; /* Laranja Terra */
+    --text-color: #333333;
+    --bg-light: #f9f9f9;
+    --bg-white: #ffffff;
+    --border-color: #dddddd;
+    --font-base: 1rem;
+}
+
+/* --- Classe de Alto Contraste (Injetada via JS) --- */
+body.high-contrast {
+    --primary-color: #ffff00;
+    --primary-light: #000000;
+    --secondary-color: #00ffff;
+    --text-color: #ffffff;
+    --bg-light: #121212;
+    --bg-white: #000000;
+    --border-color: #ffffff;
+}
+
+/* --- Resets e Estilos Globais --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: var(--font-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-white);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.text-center { text-align: center; }
+.bg-light { background-color: var(--bg-light); }
+
+/* --- Barra de Acessibilidade --- */
+.accessibility-bar {
+    background-color: #222;
+    padding: 8px 0;
+}
+.accessibility-bar .container {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+.accessibility-bar button {
+    background: #444;
+    color: #fff;
+    border: 1px solid #555;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+.accessibility-bar button:hover, 
+.accessibility-bar button:focus {
+    background: var(--secondary-color);
+    color: #000;
+}
+
+/* --- Cabeçalho e Menu --- */
+.main-header {
+    background-color: var(--bg-white);
+    border-bottom: 3px solid var(--primary-color);
+    padding: 20px 0;
+}
+.header-grid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+.logo-area h1 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+}
+.logo-area .subtitle {
+    color: var(--secondary-color);
+    font-weight: bold;
+}
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+.main-nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+.main-nav a:hover, 
+.main-nav a:focus {
+    background-color: var(--primary-color);
+    color: var(--bg-white) !important;
+}
+
+/* --- Hero Banner --- */
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), #2e7d32;
+    color: #ffffff;
+    padding: 60px 0;
+}
+.hero h2 {
+    font-size: 2.2rem;
+    margin-bottom: 15px;
+}
+.hero p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 25px auto;
+}
+.btn-primary {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: #ffffff;
+    padding: 12px 24px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.btn-primary:hover, 
+.btn-primary:focus {
+    filter: brightness(1.1);
+}
+
+/* --- Seções do Miolo --- */
+.section {
+    padding: 50px 0;
+}
+.section-title {
+    text-align: center;
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+.section-subtitle {
+    margin-bottom: 30px;
+    font-size: 1.1rem;
+}
+
+/* Layouts em Grid (Responsivos via Flexbox/Grid) */
+.grid-2, .grid-3, .grid-4 {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr;
+}
+
+.highlight-box {
+    background-color: var(--primary-light);
+    border-left: 5px solid var(--primary-color);
+    padding: 20px;
+    border-radius: 4px;
+}
+.highlight-box ul {
+    margin-top: 10px;
+    padding-left: 20px;
+}
+
+/* Cards de Itens */
+.card {
+    background: var(--bg-white);
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.card h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+/* Habilidades */
+.skill-item {
+    background-color: var(--bg-white);
+    border: 1px solid var(--primary-color);
+    padding: 15px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+/* --- Rodapé --- */
+.main-footer {
+    background-color: #222;
+    color: #bbb;
+    padding: 30px 0;
+    font-size: 0.9rem;
+}
+
+/* --- Media Queries para Telas Maiores (Responsividade) --- */
+@media (min-width: 768px) {
+    .header-grid {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .hero { padding: 100px 0; }
+    .hero h2 { font-size: 3rem; }
+    
+    .grid-2 { grid-template-columns: 1fr 1fr; }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+}
